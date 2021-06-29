@@ -2,20 +2,47 @@ bits 16
 org 32768
 %include "mikedev.inc"
 
-mov si, i_tr
+mov ah, 09h
+mov al, ' '
+mov bx, 0004h
+mov cx, 42
+int 10h
+mov si, i_tr   ; 42
 call os_print_string
 mov dh, 24
 mov dl, 0
 call os_move_cursor
-mov si, footer
+mov ah, 09h
+mov al, ' '
+mov bx, 0004h
+mov cx, 79
+int 10h
+mov si, footer ; 79
 call os_print_string
 mov dh, 1
 mov dl, 0
 call os_move_cursor
+mov ah, 09h
+mov al, ' '
+mov bx, 0002h
+mov cx, 80
+int 10h
 mov ax, input
 mov bx, 80
 call os_input_string
 call os_print_newline
+mov ah, 09h
+mov al, ' '
+mov bx, 0004h
+mov cx, 6
+int 10h
+mov si, sonuc
+call os_print_string
+mov ah, 09h
+mov al, ' '
+mov bx, 0002h
+mov cx, 80
+int 10h
 mov si, input
 jmp lp
 lp:
@@ -57,3 +84,4 @@ lp:
 input times 80 db 0
 i_tr db 'Turkce metin girin (en fazla 80 karakter):', 0
 footer db 'GH: Comrade-Otaku/kd-mikeos                                     Made by Camroku', 0
+sonuc db 'Sonuc:', 13, 10, 0
