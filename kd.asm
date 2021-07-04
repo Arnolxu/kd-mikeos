@@ -64,6 +64,16 @@ lp:
 	je .sesli
 	cmp al, 'o'
 	je .sesli
+	cmp al, 'A'
+	je .sesli_b
+	cmp al, 'E'
+	je .sesli_b
+	cmp al, 'I'
+	je .sesli_b
+	cmp al, 'U'
+	je .sesli_b
+	cmp al, 'O'
+	je .sesli_b
 	int 10h
 	jmp .tekrar
 
@@ -71,6 +81,15 @@ lp:
 	int 10h
 	pusha
 	mov al, 'g'
+    int 10h
+	popa
+	int 10h
+    jmp .tekrar
+
+.sesli_b:
+	int 10h
+	pusha
+	mov al, 'G'
     int 10h
 	popa
 	int 10h
