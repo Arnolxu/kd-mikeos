@@ -102,5 +102,5 @@ lp:
 
 input times 80 db 0
 i_tr db 'Turkce metin girin (en fazla 80 karakter):', 0
-footer db 'GH: Comrade-Otaku/kd-mikeos                                     Made by Camroku', 0
+footer db 'GH: Camroku/kd-mikeos                                           Made by Camroku', 0
 sonuc db 'Sonuc:', 13, 10, 0
